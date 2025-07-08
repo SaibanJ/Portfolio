@@ -1,0 +1,87 @@
+/* Browser Compatibility Fixes */
+
+/* CSS Custom Properties for older browsers */
+:root {
+  --vh: 1vh;
+}
+
+/* Backdrop filter fallbacks */
+@supports not (backdrop-filter: blur(12px)) {
+  .backdrop-blur-md {
+    background-color: rgba(15, 23, 42, 0.95) !important;
+  }
+}
+
+/* Firefox specific fixes */ \
+@-moz-document url-prefix() {
+  .fixed {
+    position: -moz-sticky;
+    position: sticky;
+  }
+}
+
+/* Safari specific fixes */
+@supports (-webkit-appearance: none) {
+  .min-h-screen {
+    min-height: 100vh;
+    min-height: calc(var(--vh, 1vh) * 100);
+  }
+
+  .h-screen {
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+  }
+}
+
+/* Internet Explorer / Edge Legacy fixes */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .backdrop-blur-md {
+    background-color: rgba(15, 23, 42, 0.95) !important;
+    filter: none !important;
+  }
+
+  .transform {
+    -ms-transform: translateX(-50%) translateY(-50%);
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .hover\:scale-105:hover {
+    transform: scale(1.02); /* Reduced scale for touch devices */
+  }
+
+  .touch-manipulation {
+    touch-action: manipulation;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .bg-slate-800-50 {
+    background-color: rgba(30, 41, 59, 0.9);
+  }
+
+  .border-slate-700-50 {
+    border-color: rgba(51, 65, 85, 0.8);
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Print styles */
+@media print {
+  .fixed {
+    display: none !important;
+  }
+}
