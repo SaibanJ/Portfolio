@@ -7,6 +7,7 @@ import { Heart, Code, Zap } from "lucide-react"
 
 export function AboutSection() {
   return (
+      // a section ...
       <section id="about" className="py-20 px-4">
         <div className="container mx-auto">
           <motion.div
