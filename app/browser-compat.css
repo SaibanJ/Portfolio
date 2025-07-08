@@ -12,8 +12,8 @@
   }
 }
 
-/* Firefox specific fixes */ \
-@-moz-document url-prefix() {
+/* Firefox specific fixes */
+@supports (-moz-appearance: none) {
   .fixed {
     position: -moz-sticky;
     position: sticky;
@@ -40,8 +40,9 @@
     filter: none !important;
   }
 
-  .transform {
+  .transform-center {
     -ms-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
   }
 }
 
@@ -51,7 +52,7 @@
     transform: scale(1.02); /* Reduced scale for touch devices */
   }
 
-  .touch-manipulation {
+  .touch-action-manipulation {
     touch-action: manipulation;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -61,11 +62,11 @@
 
 /* High contrast mode support */
 @media (prefers-contrast: high) {
-  .bg-slate-800-50 {
+  .bg-slate-800\/50 {
     background-color: rgba(30, 41, 59, 0.9);
   }
 
-  .border-slate-700-50 {
+  .border-slate-700\/50 {
     border-color: rgba(51, 65, 85, 0.8);
   }
 }

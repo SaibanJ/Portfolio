@@ -4,9 +4,8 @@ import "./globals.css"
 import "./browser-compat.css"
 
 export const metadata: Metadata = {
-  title: "v0 App",
-  description: "Created with v0",
-  generator: "v0.dev",
+  title: "Portfolio",
+  description: "A modern portolio",
 }
 
 export default function RootLayout({
