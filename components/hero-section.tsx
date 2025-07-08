@@ -32,7 +32,7 @@ export function HeroSection() {
             className="mx-auto w-32 h-32 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 p-1"
           >
             <img
-              src="/placeholder.svg?height=128&width=128"
+              src="/mypic.png"
               alt="James Saiban"
               className="w-full h-full rounded-full object-cover bg-slate-800"
             />

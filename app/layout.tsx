@@ -2,6 +2,7 @@ import type React from "react"
 import type { Metadata } from "next"
 import "./globals.css"
 import "./browser-compat.css"
+import { Toaster } from "sonner"
 
 export const metadata: Metadata = {
   title: "Portfolio",
@@ -15,7 +16,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        {children}
+        <Toaster position="top-right" theme="dark" />
+      </body>
     </html>
   )
 }

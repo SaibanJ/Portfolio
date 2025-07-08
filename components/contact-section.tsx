@@ -5,9 +5,77 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { motion } from "framer-motion"
-import { Mail, Phone, Linkedin, Github, Send, MapPin } from "lucide-react"
+import { Mail, Phone, Linkedin, Github, Send, MapPin, Loader2 } from "lucide-react"
+import { useForm } from "react-hook-form"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { z } from "zod"
+import { useState } from "react"
+import { toast } from "sonner"
+
+// Define the schema for form validation
+const contactFormSchema = z.object({
+  firstName: z.string().min(1, 'First name is required'),
+  lastName: z.string().min(1, 'Last name is required'),
+  email: z.string().email('Invalid email address'),
+  subject: z.string().min(1, 'Subject is required'),
+  message: z.string().min(10, 'Message must be at least 10 characters'),
+})
+
+// Type for the contact form data
+type ContactFormData = z.infer<typeof contactFormSchema>
 
 export function ContactSection() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Initialize form with react-hook-form and zod validation
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors }
+  } = useForm<ContactFormData>({
+    resolver: zodResolver(contactFormSchema),
+    defaultValues: {
+      firstName: "",
+      lastName: "",
+      email: "",
+      subject: "",
+      message: ""
+    }
+  });
+
+  // Handle form submission
+  const onSubmit = async (data: ContactFormData) => {
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Failed to send message');
+      }
+
+      // Show success message
+      toast.success('Message sent successfully! I will get back to you soon.');
+
+      // Reset the form
+      reset();
+    } catch (error) {
+      // Show error message
+      toast.error(error instanceof Error ? error.message : 'Failed to send message');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   const contactInfo = [
     {
       icon: Phone,
@@ -27,7 +95,7 @@ export function ContactSection() {
       icon: Linkedin,
       label: "LinkedIn",
       value: "james-saiban",
-      href: "https://linkedin.com/in/james-saiban",
+      href: "https://www.linkedin.com/in/james-saiban-ba3b60217/",
       gradient: "from-blue-600 to-blue-700",
     },
     {
@@ -136,56 +204,89 @@ export function ContactSection() {
                 <CardTitle className="text-white">Send a Message</CardTitle>
               </CardHeader>
               <CardContent className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="text-slate-300 text-sm font-medium mb-2 block">First Name</label>
-                    <Input
-                      placeholder="John"
-                      className="bg-slate-700/50 border-slate-600 text-white placeholder:text-slate-400 focus:border-purple-500"
-                    />
+                <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div>
+                      <label className="text-slate-300 text-sm font-medium mb-2 block">First Name</label>
+                      <Input
+                        {...register("firstName")}
+                        placeholder="John"
+                        className={`bg-slate-700/50 border-slate-600 text-white placeholder:text-slate-400 focus:border-purple-500 ${errors.firstName ? 'border-red-500' : ''}`}
+                      />
+                      {errors.firstName && (
+                        <p className="text-red-500 text-sm mt-1">{errors.firstName.message}</p>
+                      )}
+                    </div>
+                    <div>
+                      <label className="text-slate-300 text-sm font-medium mb-2 block">Last Name</label>
+                      <Input
+                        {...register("lastName")}
+                        placeholder="Doe"
+                        className={`bg-slate-700/50 border-slate-600 text-white placeholder:text-slate-400 focus:border-purple-500 ${errors.lastName ? 'border-red-500' : ''}`}
+                      />
+                      {errors.lastName && (
+                        <p className="text-red-500 text-sm mt-1">{errors.lastName.message}</p>
+                      )}
+                    </div>
                   </div>
+
                   <div>
-                    <label className="text-slate-300 text-sm font-medium mb-2 block">Last Name</label>
+                    <label className="text-slate-300 text-sm font-medium mb-2 block">Email</label>
                     <Input
-                      placeholder="Doe"
-                      className="bg-slate-700/50 border-slate-600 text-white placeholder:text-slate-400 focus:border-purple-500"
+                      {...register("email")}
+                      type="email"
+                      placeholder="john@example.com"
+                      className={`bg-slate-700/50 border-slate-600 text-white placeholder:text-slate-400 focus:border-purple-500 ${errors.email ? 'border-red-500' : ''}`}
                     />
+                    {errors.email && (
+                      <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
+                    )}
                   </div>
-                </div>
 
-                <div>
-                  <label className="text-slate-300 text-sm font-medium mb-2 block">Email</label>
-                  <Input
-                    type="email"
-                    placeholder="john@example.com"
-                    className="bg-slate-700/50 border-slate-600 text-white placeholder:text-slate-400 focus:border-purple-500"
-                  />
-                </div>
+                  <div>
+                    <label className="text-slate-300 text-sm font-medium mb-2 block">Subject</label>
+                    <Input
+                      {...register("subject")}
+                      placeholder="Project Discussion"
+                      className={`bg-slate-700/50 border-slate-600 text-white placeholder:text-slate-400 focus:border-purple-500 ${errors.subject ? 'border-red-500' : ''}`}
+                    />
+                    {errors.subject && (
+                      <p className="text-red-500 text-sm mt-1">{errors.subject.message}</p>
+                    )}
+                  </div>
 
-                <div>
-                  <label className="text-slate-300 text-sm font-medium mb-2 block">Subject</label>
-                  <Input
-                    placeholder="Project Discussion"
-                    className="bg-slate-700/50 border-slate-600 text-white placeholder:text-slate-400 focus:border-purple-500"
-                  />
-                </div>
+                  <div>
+                    <label className="text-slate-300 text-sm font-medium mb-2 block">Message</label>
+                    <Textarea
+                      {...register("message")}
+                      placeholder="Tell me about your project..."
+                      rows={5}
+                      className={`bg-slate-700/50 border-slate-600 text-white placeholder:text-slate-400 focus:border-purple-500 resize-none ${errors.message ? 'border-red-500' : ''}`}
+                    />
+                    {errors.message && (
+                      <p className="text-red-500 text-sm mt-1">{errors.message.message}</p>
+                    )}
+                  </div>
 
-                <div>
-                  <label className="text-slate-300 text-sm font-medium mb-2 block">Message</label>
-                  <Textarea
-                    placeholder="Tell me about your project..."
-                    rows={5}
-                    className="bg-slate-700/50 border-slate-600 text-white placeholder:text-slate-400 focus:border-purple-500 resize-none"
-                  />
-                </div>
-
-                <Button
-                  size="lg"
-                  className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white"
-                >
-                  <Send className="w-4 h-4 mr-2" />
-                  Send Message
-                </Button>
+                  <Button
+                    type="submit"
+                    size="lg"
+                    disabled={isSubmitting}
+                    className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white"
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                        Sending...
+                      </>
+                    ) : (
+                      <>
+                        <Send className="w-4 h-4 mr-2" />
+                        Send Message
+                      </>
+                    )}
+                  </Button>
+                </form>
               </CardContent>
             </Card>
           </motion.div>
