@@ -12,7 +12,7 @@ import { z } from "zod"
 import { useState } from "react"
 import { toast } from "sonner"
 
-// Define the schema for form validation
+// Define the schema for form validation.
 const contactFormSchema = z.object({
   firstName: z.string().min(1, 'First name is required'),
   lastName: z.string().min(1, 'Last name is required'),
@@ -285,6 +285,7 @@ export function ContactSection() {
                         Send Message
                       </>
                     )}
+
                   </Button>
                 </form>
               </CardContent>
