@@ -124,7 +124,7 @@ export function ContactSection() {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid lg:grid-cols-2 gap-12 overflow-hidden">
           {/* Contact Information */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}

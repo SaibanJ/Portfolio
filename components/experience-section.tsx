@@ -52,7 +52,7 @@ export function ExperienceSection() {
           </p>
         </motion.div>
 
-        <div className="space-y-8">
+        <div className="space-y-8 overflow-hidden">
           {experiences.map((experience, index) => (
             <motion.div
               key={experience.title}

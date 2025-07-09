@@ -7,7 +7,7 @@ import { Heart, Code, Zap } from "lucide-react"
 
 export function AboutSection() {
   return (
-      // a section ...
+
       <section id="about" className="py-20 px-4">
         <div className="container mx-auto">
           <motion.div
@@ -21,7 +21,7 @@ export function AboutSection() {
             <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto mb-8" />
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid md:grid-cols-2 gap-12 items-center overflow-hidden">
             <motion.div
                 initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
