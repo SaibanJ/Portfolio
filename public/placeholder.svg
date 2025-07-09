@@ -1,1 +1,76 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" fill="none"><rect width="1200" height="1200" fill="#EAEAEA" rx="3"/><g opacity=".5"><g opacity=".5"><path fill="#FAFAFA" d="M600.709 736.5c-75.454 0-136.621-61.167-136.621-136.62 0-75.454 61.167-136.621 136.621-136.621 75.453 0 136.62 61.167 136.62 136.621 0 75.453-61.167 136.62-136.62 136.62Z"/><path stroke="#C9C9C9" stroke-width="2.418" d="M600.709 736.5c-75.454 0-136.621-61.167-136.621-136.62 0-75.454 61.167-136.621 136.621-136.621 75.453 0 136.62 61.167 136.62 136.621 0 75.453-61.167 136.62-136.62 136.62Z"/></g><path stroke="url(#a)" stroke-width="2.418" d="M0-1.209h553.581" transform="scale(1 -1) rotate(45 1163.11 91.165)"/><path stroke="url(#b)" stroke-width="2.418" d="M404.846 598.671h391.726"/><path stroke="url(#c)" stroke-width="2.418" d="M599.5 795.742V404.017"/><path stroke="url(#d)" stroke-width="2.418" d="m795.717 796.597-391.441-391.44"/><path fill="#fff" d="M600.709 656.704c-31.384 0-56.825-25.441-56.825-56.824 0-31.384 25.441-56.825 56.825-56.825 31.383 0 56.824 25.441 56.824 56.825 0 31.383-25.441 56.824-56.824 56.824Z"/><g clip-path="url(#e)"><path fill="#666" fill-rule="evenodd" d="M616.426 586.58h-31.434v16.176l3.553-3.554.531-.531h9.068l.074-.074 8.463-8.463h2.565l7.18 7.181V586.58Zm-15.715 14.654 3.698 3.699 1.283 1.282-2.565 2.565-1.282-1.283-5.2-5.199h-6.066l-5.514 5.514-.073.073v2.876a2.418 2.418 0 0 0 2.418 2.418h26.598a2.418 2.418 0 0 0 2.418-2.418v-8.317l-8.463-8.463-7.181 7.181-.071.072Zm-19.347 5.442v4.085a6.045 6.045 0 0 0 6.046 6.045h26.598a6.044 6.044 0 0 0 6.045-6.045v-7.108l1.356-1.355-1.282-1.283-.074-.073v-17.989h-38.689v23.43l-.146.146.146.147Z" clip-rule="evenodd"/></g><path stroke="#C9C9C9" stroke-width="2.418" d="M600.709 656.704c-31.384 0-56.825-25.441-56.825-56.824 0-31.384 25.441-56.825 56.825-56.825 31.383 0 56.824 25.441 56.824 56.825 0 31.383-25.441 56.824-56.824 56.824Z"/></g><defs><linearGradient id="a" x1="554.061" x2="-.48" y1=".083" y2=".087" gradientUnits="userSpaceOnUse"><stop stop-color="#C9C9C9" stop-opacity="0"/><stop offset=".208" stop-color="#C9C9C9"/><stop offset=".792" stop-color="#C9C9C9"/><stop offset="1" stop-color="#C9C9C9" stop-opacity="0"/></linearGradient><linearGradient id="b" x1="796.912" x2="404.507" y1="599.963" y2="599.965" gradientUnits="userSpaceOnUse"><stop stop-color="#C9C9C9" stop-opacity="0"/><stop offset=".208" stop-color="#C9C9C9"/><stop offset=".792" stop-color="#C9C9C9"/><stop offset="1" stop-color="#C9C9C9" stop-opacity="0"/></linearGradient><linearGradient id="c" x1="600.792" x2="600.794" y1="403.677" y2="796.082" gradientUnits="userSpaceOnUse"><stop stop-color="#C9C9C9" stop-opacity="0"/><stop offset=".208" stop-color="#C9C9C9"/><stop offset=".792" stop-color="#C9C9C9"/><stop offset="1" stop-color="#C9C9C9" stop-opacity="0"/></linearGradient><linearGradient id="d" x1="404.85" x2="796.972" y1="403.903" y2="796.02" gradientUnits="userSpaceOnUse"><stop stop-color="#C9C9C9" stop-opacity="0"/><stop offset=".208" stop-color="#C9C9C9"/><stop offset=".792" stop-color="#C9C9C9"/><stop offset="1" stop-color="#C9C9C9" stop-opacity="0"/></linearGradient><clipPath id="e"><path fill="#fff" d="M581.364 580.535h38.689v38.689h-38.689z"/></clipPath></defs></svg>
+<svg viewBox="0 0 1000 600" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <!-- Background Gradient -->
+        <linearGradient id="backgroundGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#6B21A8;stop-opacity:1" /> <!-- Purple-800 -->
+            <stop offset="100%" style="stop-color:#4338CA;stop-opacity:1" /> <!-- Indigo-900 -->
+        </linearGradient>
+
+        <!-- Card Gradient (for button, if desired, but solid color is closer to image) -->
+        <linearGradient id="buttonGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#4F46E5;stop-opacity:1" /> <!-- Indigo-600 -->
+            <stop offset="100%" style="stop-color:#6366F1;stop-opacity:1" /> <!-- Indigo-500 -->
+        </linearGradient>
+
+        <!-- Define the Inter font family for SVG text (Note: for standalone SVG, this needs to be externally available or embedded via base64 if not system font) -->
+        <!-- For optimal standalone SVG use, consider converting text to paths or relying on common system fonts. -->
+        <!-- If rendering in a browser, the @font-face from the previous HTML example would be needed in the embedding HTML/CSS. -->
+        <style>
+            @font-face {
+            font-family: 'Inter';
+            src: url('https://rsms.me/inter/font-files/Inter-Regular.woff2?v=3.19') format('woff2');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+            }
+            @font-face {
+            font-family: 'Inter';
+            src: url('https://rsms.me/inter/font-files/Inter-Bold.woff2?v=3.19') format('woff2');
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+            }
+            @font-face {
+            font-family: 'Inter';
+            src: url('https://rsms.me/inter/font-files/Inter-Light.woff2?v=3.19') format('woff2');
+            font-weight: 300;
+            font-style: normal;
+            font-display: swap;
+            }
+        </style>
+    </defs>
+
+    <!-- Background Rectangle with Gradient -->
+    <rect x="0" y="0" width="1000" height="600" fill="url(#backgroundGradient)" />
+
+    <!-- Left Section - Main Display Text -->
+    <!-- Adjusted x-coordinate for "padding-left" effect -->
+    <text x="80" y="280" font-family="Inter" font-weight="bold" font-size="72" fill="white">James Saiban</text>
+    <text x="80" y="350" font-family="Inter" font-weight="light" font-size="40" fill="white">Full-Stack Developer</text>
+
+    <!-- Right Section - Profile Card -->
+    <g transform="translate(600, 100)">
+        <!-- Card Background -->
+        <rect x="0" y="0" width="350" height="400" rx="24" ry="24" fill="#8B5CF6" fill-opacity="0.7" /> <!-- Purple-700 with opacity -->
+
+        <!-- Card Header - Placeholder dots -->
+        <circle cx="30" cy="30" r="6" fill="white" />
+        <circle cx="48" cy="30" r="6" fill="white" />
+        <circle cx="66" cy="30" r="6" fill="white" />
+
+        <!-- Card Content -->
+        <text x="175" y="120" text-anchor="middle" font-family="Inter" font-weight="bold" font-size="30" fill="white">James Saiban</text>
+        <text x="175" y="160" text-anchor="middle" font-family="Inter" font-weight="light" font-size="20" fill="white">Full-Stack Developer</text>
+
+        <!-- Button -->
+        <rect x="75" y="200" width="200" height="50" rx="25" ry="25" fill="#4F46E5" /> <!-- Indigo-600 -->
+        <text x="175" y="235" text-anchor="middle" font-family="Inter" font-weight="semibold" font-size="18" fill="white">Explore My Work</text>
+
+        <!-- Projects and Experience Links -->
+        <text x="110" y="300" text-anchor="middle" font-family="Inter" font-weight="medium" font-size="18" fill="white">Projects</text>
+        <text x="240" y="300" text-anchor="middle" font-family="Inter" font-weight="medium" font-size="18" fill="white">Experience</text>
+
+        <!-- Website URL -->
+        <text x="175" y="360" text-anchor="middle" font-family="Inter" font-weight="light" font-size="16" fill="#DDA0DD">saibanjamesr.dev</text>
+    </g>
+</svg>
