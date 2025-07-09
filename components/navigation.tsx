@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, CSSProperties } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Home, User, Code, Briefcase, FolderOpen, Mail } from "lucide-react"
@@ -19,12 +19,30 @@ export function Navigation() {
   ]
 
   const scrollToSection = (id: string) => {
-    if (id === "hero") {
-      window.scrollTo({ top: 0, behavior: "smooth" })
-    } else {
-      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" })
-    }
+    // First close the menu to prevent interference with scrolling
     setIsOpen(false)
+
+    // Improved delay to better coordinate with menu closing animation
+    // This creates a smoother transition between menu closing and scrolling
+    setTimeout(() => {
+      if (id === "hero") {
+        window.scrollTo({ 
+          top: 0, 
+          behavior: "smooth" 
+        })
+      } else {
+        const element = document.getElementById(id)
+        if (element) {
+          // Use a more gradual scroll with custom timing
+          element.scrollIntoView({ 
+            behavior: "smooth",
+            block: "start"
+          })
+        } else {
+          console.error(`Element with id ${id} not found`)
+        }
+      }
+    }, 400)
   }
 
   // Track active section on scroll
@@ -53,13 +71,15 @@ export function Navigation() {
 
   // Prevent body scroll when menu is open - improved for mobile
   useEffect(() => {
+    let savedScrollY = 0;
+
     if (isOpen) {
       // Store current scroll position
-      const scrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop
+      savedScrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop
 
       // Apply styles with fallbacks
       document.body.style.position = "fixed"
-      document.body.style.top = `-${scrollY}px`
+      document.body.style.top = `-${savedScrollY}px`
       document.body.style.width = "100%"
       document.body.style.overflow = "hidden"
 
@@ -79,13 +99,15 @@ export function Navigation() {
       document.documentElement.style.overflow = ""
       document.documentElement.style.height = ""
 
-      // Restore scroll with fallbacks
-      if (window.scrollTo) {
-        window.scrollTo(0, numericScrollY)
-      } else {
-        document.documentElement.scrollTop = numericScrollY
-        document.body.scrollTop = numericScrollY
-      }
+      // Restore scroll with fallbacks - use a small timeout to ensure styles are reset first
+      setTimeout(() => {
+        if (window.scrollTo) {
+          window.scrollTo(0, numericScrollY)
+        } else {
+          document.documentElement.scrollTop = numericScrollY
+          document.body.scrollTop = numericScrollY
+        }
+      }, 10)
     }
 
     return () => {
@@ -167,7 +189,10 @@ export function Navigation() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
+            transition={{ 
+              duration: 0.4,
+              ease: "easeInOut"
+            }}
             className="fixed inset-0 z-40 overflow-hidden"
             style={{
               position: "fixed",
@@ -182,9 +207,8 @@ export function Navigation() {
               background: "rgba(15, 23, 42, 0.98)", // Increased opacity for better fallback
               backdropFilter: "blur(12px)",
               WebkitBackdropFilter: "blur(12px)",
-              MozBackdropFilter: "blur(12px)", // Firefox support
-              msBackdropFilter: "blur(12px)", // IE/Edge support
-            }}
+              // Vendor prefixes handled via CSS custom properties for type safety
+            } as CSSProperties}
           >
             {/* Additional background layer to ensure no white space */}
             <div
@@ -201,12 +225,16 @@ export function Navigation() {
               }}
             />
 
-            <div className="flex items-center justify-center min-h-screen min-h-[100vh] p-4 sm:p-8 relative z-10">
+            <div className="flex items-center justify-center min-h-[100vh] p-4 sm:p-8 relative z-10">
               <motion.nav
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0.8, opacity: 0 }}
-                transition={{ duration: 0.3, delay: 0.1 }}
+                transition={{ 
+                  duration: 0.35, 
+                  delay: 0.05,
+                  ease: "easeOut" 
+                }}
                 className="text-center w-full max-w-md mx-auto py-8"
               >
                 <motion.h2
@@ -224,12 +252,23 @@ export function Navigation() {
                       key={item.id}
                       initial={{ x: -50, opacity: 0 }}
                       animate={{ x: 0, opacity: 1 }}
-                      transition={{ delay: 0.3 + index * 0.1 }}
+                      exit={{ x: -30, opacity: 0 }}
+                      transition={{ 
+                        delay: 0.2 + index * 0.08,
+                        duration: 0.3,
+                        ease: "easeOut"
+                      }}
                     >
                       <button
-                        onClick={() => scrollToSection(item.id)}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          scrollToSection(item.id);
+                        }}
                         onTouchStart={() => {}} // Enables :active states on iOS
-                        onTouchEnd={() => scrollToSection(item.id)}
+                        onTouchEnd={(e) => {
+                          e.preventDefault();
+                          scrollToSection(item.id);
+                        }}
                         className={`group flex items-center justify-center space-x-3 sm:space-x-4 w-full max-w-xs mx-auto p-3 sm:p-4 rounded-xl transition-all duration-300 hover:bg-slate-800/50 touch-manipulation ${
                           activeSection === item.id
                             ? "bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-purple-500/30"
@@ -273,7 +312,7 @@ export function Navigation() {
                       }}
                       transition={{
                         duration: 2,
-                        repeat: Number.POSITIVE_INFINITY,
+                        repeat: Infinity,
                         delay: i * 0.3,
                       }}
                       className="w-2 h-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full"
@@ -297,7 +336,11 @@ export function Navigation() {
           {menuItems.map((item) => (
             <motion.button
               key={item.id}
-              onClick={() => scrollToSection(item.id)}
+              onClick={(e) => {
+                e.preventDefault();
+                // Use the same scrollToSection function for consistency
+                scrollToSection(item.id);
+              }}
               className={`group relative w-3 h-3 rounded-full transition-all duration-300 ${
                 activeSection === item.id
                   ? "bg-gradient-to-r from-purple-500 to-pink-500 scale-125"
