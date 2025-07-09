@@ -2,7 +2,8 @@
 
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Github, Linkedin, Mail, Phone, ArrowDown } from "lucide-react"
+import { Github, Mail, Phone, ArrowDown } from "lucide-react"
+import { Linkedin } from "@/components/icons/linkedin"
 import { motion } from "framer-motion"
 
 export function HeroSection() {
@@ -89,33 +90,45 @@ export function HeroSection() {
               variant="outline"
               size="lg"
               className="bg-transparent border-purple-500/50 text-purple-200 hover:bg-purple-500/20"
+              asChild
             >
-              <Phone className="w-4 h-4 mr-2" />
-              (517) 200-8248
+              <a href="tel:+15172008248">
+                <Phone className="w-4 h-4 mr-2" />
+                (517) 200-8248
+              </a>
             </Button>
             <Button
               variant="outline"
               size="lg"
               className="bg-transparent border-purple-500/50 text-purple-200 hover:bg-purple-500/20"
+              asChild
             >
-              <Mail className="w-4 h-4 mr-2" />
-              saibanjamesr@gmail.com
+              <a href="mailto:saibanjamesr@gmail.com">
+                <Mail className="w-4 h-4 mr-2" />
+                saibanjamesr@gmail.com
+              </a>
             </Button>
             <Button
               variant="outline"
               size="lg"
               className="bg-transparent border-purple-500/50 text-purple-200 hover:bg-purple-500/20"
+              asChild
             >
-              <Linkedin className="w-4 h-4 mr-2" />
-              LinkedIn
+              <a href="https://www.linkedin.com/in/james-saiban-ba3b60217/" target="_blank" rel="noopener noreferrer">
+                <Linkedin className="w-4 h-4 mr-2" />
+                LinkedIn
+              </a>
             </Button>
             <Button
               variant="outline"
               size="lg"
               className="bg-transparent border-purple-500/50 text-purple-200 hover:bg-purple-500/20"
+              asChild
             >
-              <Github className="w-4 h-4 mr-2" />
-              GitHub
+              <a href="https://github.com/SaibanJ" target="_blank" rel="noopener noreferrer">
+                <Github className="w-4 h-4 mr-2" />
+                GitHub
+              </a>
             </Button>
           </motion.div>
 
