@@ -15,7 +15,7 @@ export const metadata = {
         siteName: 'James Saiban Portfolio',
         images: [
             {
-                url: 'https://saibanjamesr.dev/og-image.svg',
+                url: 'https://saibanjamesr.dev/placeholder.svg',
                 width: 1200,
                 height: 630,
                 alt: 'James Saiban Portfolio Preview',
@@ -28,7 +28,7 @@ export const metadata = {
         card: 'summary_large_image',
         title: 'James Saiban – Full-Stack Engineer',
         description: 'Check out my full-stack portfolio and get in touch.',
-        images: ['https://saibanjamesr.dev/og-image.png'],
+        images: ['https://saibanjamesr.dev/placeholder.svg'],
     },
 };
 export default function RootLayout({
