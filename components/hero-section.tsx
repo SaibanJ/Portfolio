@@ -57,7 +57,7 @@ export function HeroSection() {
               className="flex flex-wrap justify-center gap-2"
             >
               <Badge variant="secondary" className="bg-purple-500/20 text-purple-200 border-purple-500/30">
-                Junior Software Engineer
+                Software Engineer
               </Badge>
               <Badge variant="secondary" className="bg-pink-500/20 text-pink-200 border-pink-500/30">
                 Freelance Web Developer
