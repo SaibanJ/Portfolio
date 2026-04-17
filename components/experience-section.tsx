@@ -8,19 +8,6 @@ import { Code, Package, ShoppingBag } from "lucide-react"
 export function ExperienceSection() {
   const experiences = [
     {
-      title: "Freelance Web Hosting & Website Developer",
-      company: "Self-Employed",
-      location: "Michigan, USA",
-      period: "2021 – Present",
-      icon: Code,
-      gradient: "from-purple-500 to-pink-500",
-      responsibilities: [
-        "Built and managed client websites using WHMCS reseller hosting and modern web technologies",
-        "Provided end-to-end services including domain setup, deployment, maintenance, and client support",
-        "Delivered responsive WordPress sites using custom code and plugins, implementing SEO best practices",
-      ],
-    },
-    {
       title: "Field Sales Representative",
       company: "Asurion",
       location: "Michigan, USA",
@@ -32,6 +19,19 @@ export function ExperienceSection() {
         "Build rapport with customers to identify needs and communicate the value of protection plans for their devices",
         "Manage a designated market territory, driving revenue growth through proactive outreach and in-store engagement",
         "Collaborate with retail partners to maximise product visibility and sales performance on the floor",
+      ],
+    },
+    {
+      title: "Freelance Web Hosting & Website Developer",
+      company: "Self-Employed",
+      location: "Michigan, USA",
+      period: "2021 – Present",
+      icon: Code,
+      gradient: "from-purple-500 to-pink-500",
+      responsibilities: [
+        "Built and managed client websites using WHMCS reseller hosting and modern web technologies",
+        "Provided end-to-end services including domain setup, deployment, maintenance, and client support",
+        "Delivered responsive WordPress sites using custom code and plugins, implementing SEO best practices",
       ],
     },
     {
