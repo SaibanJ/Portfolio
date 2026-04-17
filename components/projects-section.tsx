@@ -9,10 +9,10 @@ import { ExternalLink, Github as GithubIcon, Mic, Palette } from "lucide-react"
 export function ProjectsSection() {
   const projects = [
     {
-      title: "Converso - AI Teaching Platform",
+      title: "iTeachAll - AI Learning Platform",
       description:
-        "A real-time AI-powered education platform featuring voice-based teaching companions with progress tracking and subscription management.",
-      image: `https://api.microlink.io/?url=https://saas-app1-lana.vercel.app&screenshot=true&meta=false&embed=screenshot.url`,
+        "A real-time AI tutoring platform where users learn through voice-powered conversations across 9+ subjects. Build custom AI companions with personalised subject, voice style, and personality, available 24/7 with session history tracking.",
+      image: `https://api.microlink.io/?url=https://iteachall.vercel.app&screenshot=true&meta=false&embed=screenshot.url`,
       technologies: ["Next.js", "React", "TypeScript", "Supabase", "Vapi AI", "Clerk", "Vercel"],
       liveUrl: "https://saas-app1-lana.vercel.app",
       githubUrl: "https://github.com/SaibanJ/saas-app",
