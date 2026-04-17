@@ -14,7 +14,7 @@ export function ProjectsSection() {
         "A real-time AI tutoring platform where users learn through voice-powered conversations across 9+ subjects. Build custom AI companions with personalised subject, voice style, and personality, available 24/7 with session history tracking.",
       image: `https://api.microlink.io/?url=https://iteachall.vercel.app&screenshot=true&meta=false&embed=screenshot.url`,
       technologies: ["Next.js", "React", "TypeScript", "Supabase", "Vapi AI", "Clerk", "Vercel"],
-      liveUrl: "https://saas-app1-lana.vercel.app",
+      liveUrl: "https://iteachall.vercel.app",
       githubUrl: "https://github.com/SaibanJ/iTeachall",
       icon: Mic,
       gradient: "from-purple-500 to-pink-500",
