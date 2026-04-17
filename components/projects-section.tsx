@@ -9,18 +9,6 @@ import { ExternalLink, Github as GithubIcon, Globe, Mic, Palette } from "lucide-
 export function ProjectsSection() {
   const projects = [
     {
-      title: "iTeachAll - AI Learning Platform",
-      description:
-        "A real-time AI tutoring platform where users learn through voice-powered conversations across 9+ subjects. Build custom AI companions with personalised subject, voice style, and personality, available 24/7 with session history tracking.",
-      image: `https://api.microlink.io/?url=https://iteachall.vercel.app&screenshot=true&meta=false&embed=screenshot.url`,
-      technologies: ["Next.js", "React", "TypeScript", "Supabase", "Vapi AI", "Clerk", "Vercel"],
-      liveUrl: "https://iteachall.vercel.app",
-      githubUrl: "https://github.com/SaibanJ/iTeachall",
-      icon: Mic,
-      gradient: "from-purple-500 to-pink-500",
-      year: "2024 – Present",
-    },
-    {
       title: "WebConcoction",
       description:
         "A web agency platform offering custom-coded websites, domain registration, and enterprise hosting. Features a global CDN with 99.99% uptime, free SSL, DDoS protection, and a client dashboard — built entirely from scratch with no templates.",
@@ -30,6 +18,18 @@ export function ProjectsSection() {
       githubUrl: "https://github.com/SaibanJ/webconcoction",
       icon: Globe,
       gradient: "from-emerald-500 to-teal-500",
+      year: "2025",
+    },
+    {
+      title: "iTeachAll - AI Learning Platform",
+      description:
+        "A real-time AI tutoring platform where users learn through voice-powered conversations across 9+ subjects. Build custom AI companions with personalised subject, voice style, and personality, available 24/7 with session history tracking.",
+      image: `https://api.microlink.io/?url=https://iteachall.vercel.app&screenshot=true&meta=false&embed=screenshot.url`,
+      technologies: ["Next.js", "React", "TypeScript", "Supabase", "Vapi AI", "Clerk", "Vercel"],
+      liveUrl: "https://iteachall.vercel.app",
+      githubUrl: "https://github.com/SaibanJ/iTeachall",
+      icon: Mic,
+      gradient: "from-purple-500 to-pink-500",
       year: "2024",
     },
     {
