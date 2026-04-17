@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { motion } from "framer-motion"
-import { ExternalLink, Github, Mic, Palette } from "lucide-react"
+import { ExternalLink, Github as GithubIcon, Mic, Palette } from "lucide-react"
 
 export function ProjectsSection() {
   const projects = [
@@ -12,7 +12,7 @@ export function ProjectsSection() {
       title: "Converso - AI Teaching Platform",
       description:
         "A real-time AI-powered education platform featuring voice-based teaching companions with progress tracking and subscription management.",
-      image: "/projectvapi.png",
+      image: `https://api.microlink.io/?url=https://saas-app1-lana.vercel.app&screenshot=true&meta=false&embed=screenshot.url`,
       technologies: ["Next.js", "React", "TypeScript", "Supabase", "Vapi AI", "Clerk", "Vercel"],
       liveUrl: "https://saas-app1-lana.vercel.app",
       githubUrl: "https://github.com/SaibanJ/saas-app",
@@ -24,7 +24,7 @@ export function ProjectsSection() {
       title: "First Portfolio Website",
       description:
         "A personal portfolio website designed from scratch using Figma for UI design and React for development, showcasing early web development skills.",
-      image: "/projectportfolio.png",
+      image: `https://api.microlink.io/?url=https://saibanj.github.io/my-portfolio-redone&screenshot=true&meta=false&embed=screenshot.url`,
       technologies: ["React", "Figma", "HTML", "CSS"],
       liveUrl: "https://saibanj.github.io/my-portfolio-redone",
       githubUrl: "https://github.com/SaibanJ/my-portfolio-redone/tree/gh-pages",
@@ -114,7 +114,7 @@ export function ProjectsSection() {
                       asChild
                     >
                       <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                        <Github className="w-4 h-4 mr-2" />
+                        <GithubIcon className="w-4 h-4 mr-2" />
                         Code
                       </a>
                     </Button>
