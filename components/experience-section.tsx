@@ -3,7 +3,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { motion } from "framer-motion"
-import { Code, Package } from "lucide-react"
+import { Code, Package, ShoppingBag } from "lucide-react"
 
 export function ExperienceSection() {
   const experiences = [
@@ -18,6 +18,20 @@ export function ExperienceSection() {
         "Built and managed client websites using WHMCS reseller hosting and modern web technologies",
         "Provided end-to-end services including domain setup, deployment, maintenance, and client support",
         "Delivered responsive WordPress sites using custom code and plugins, implementing SEO best practices",
+      ],
+    },
+    {
+      title: "Field Sales Representative",
+      company: "Asurion",
+      location: "Michigan, USA",
+      period: "2025 – Present",
+      icon: ShoppingBag,
+      gradient: "from-orange-500 to-yellow-500",
+      responsibilities: [
+        "Sell tech protection insurance plans directly to consumers, consistently meeting and exceeding market sales metrics and goals",
+        "Build rapport with customers to identify needs and communicate the value of protection plans for their devices",
+        "Manage a designated market territory, driving revenue growth through proactive outreach and in-store engagement",
+        "Collaborate with retail partners to maximise product visibility and sales performance on the floor",
       ],
     },
     {
