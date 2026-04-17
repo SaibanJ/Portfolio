@@ -13,7 +13,7 @@ export function ProjectsSection() {
       description:
         "A web agency platform offering custom-coded websites, domain registration, and enterprise hosting. Features a global CDN with 99.99% uptime, free SSL, DDoS protection, and a client dashboard — built entirely from scratch with no templates.",
       image: `https://api.microlink.io/?url=https://webconcoction.com&screenshot=true&meta=false&embed=screenshot.url`,
-      technologies: ["Next.js", "TypeScript", "CSS"],
+      technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Supabase", "Stripe", "Three.js", "Vercel"],
       liveUrl: "https://webconcoction.com",
       githubUrl: "https://github.com/SaibanJ/webconcoction",
       icon: Globe,
