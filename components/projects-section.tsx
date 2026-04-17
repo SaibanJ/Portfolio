@@ -15,7 +15,7 @@ export function ProjectsSection() {
       image: `https://api.microlink.io/?url=https://iteachall.vercel.app&screenshot=true&meta=false&embed=screenshot.url`,
       technologies: ["Next.js", "React", "TypeScript", "Supabase", "Vapi AI", "Clerk", "Vercel"],
       liveUrl: "https://saas-app1-lana.vercel.app",
-      githubUrl: "https://github.com/SaibanJ/saas-app",
+      githubUrl: "https://github.com/SaibanJ/iTeachall",
       icon: Mic,
       gradient: "from-purple-500 to-pink-500",
       year: "2024 – Present",
