@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { motion } from "framer-motion"
-import { ExternalLink, Github as GithubIcon, Mic, Palette } from "lucide-react"
+import { ExternalLink, Github as GithubIcon, Globe, Mic, Palette } from "lucide-react"
 
 export function ProjectsSection() {
   const projects = [
@@ -19,6 +19,18 @@ export function ProjectsSection() {
       icon: Mic,
       gradient: "from-purple-500 to-pink-500",
       year: "2024 – Present",
+    },
+    {
+      title: "WebConcoction",
+      description:
+        "A web agency platform offering custom-coded websites, domain registration, and enterprise hosting. Features a global CDN with 99.99% uptime, free SSL, DDoS protection, and a client dashboard — built entirely from scratch with no templates.",
+      image: `https://api.microlink.io/?url=https://webconcoction.com&screenshot=true&meta=false&embed=screenshot.url`,
+      technologies: ["Next.js", "TypeScript", "CSS"],
+      liveUrl: "https://webconcoction.com",
+      githubUrl: "https://github.com/SaibanJ/webconcoction",
+      icon: Globe,
+      gradient: "from-emerald-500 to-teal-500",
+      year: "2024",
     },
     {
       title: "First Portfolio Website",
